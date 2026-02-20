@@ -1,0 +1,68 @@
+// swaghud animations
+// Custom HUD animations for swaghud
+
+event HudHealthDyingPulse
+{
+	Animate	PlayerStatusHealthValue		fgcolor		"255 80 0 255"		Linear 0.0 0.0
+	Animate	PlayerStatusHealthValue		fgcolor		"180 0 0 255"		Linear 0.0 0.4
+	Animate	PlayerStatusHealthValue		fgcolor		"255 80 0 255"		Linear 0.4 0.4
+	RunEvent HudHealthDyingPulse		0.8
+}
+
+event HudHealthDyingPulseStop
+{
+	StopEvent HudHealthDyingPulse		0.0
+	Animate	PlayerStatusHealthValue		fgcolor		"220 220 220 255"	Linear 0.0 0.1
+}
+
+event HudHealthBonusPulse
+{
+	Animate PlayerStatusHealthBonusImage	Alpha		"255"			Linear 0.0 0.0
+	Animate PlayerStatusHealthBonusImage	Alpha		"0"				Linear 0.8 0.4
+	Animate PlayerStatusHealthValueOD		visible		"1"				Linear 0.0 0.0
+	Animate PlayerStatusHealthValue		visible		"0"				Linear 0.0 0.0
+	RunEvent HudHealthBonusPulse		1.2
+}
+
+event HudHealthBonusPulseStop
+{
+	StopEvent HudHealthBonusPulse		0.0
+	Animate PlayerStatusHealthBonusImage	Alpha		"0"				Linear 0.0 0.1
+	Animate PlayerStatusHealthValueOD		visible		"0"				Linear 0.0 0.0
+	Animate PlayerStatusHealthValue		visible		"1"				Linear 0.0 0.0
+}
+
+event HudHealthBonusPulseLoop
+{
+	Animate PlayerStatusHealthBonusImage	Alpha		"255"			Linear 0.0 0.0
+	Animate PlayerStatusHealthBonusImage	Alpha		"0"				Linear 0.4 0.4
+	Animate PlayerStatusHealthBonusImage	Alpha		"255"			Linear 0.8 0.0
+}
+
+event LowAmmoIndicatorOn
+{
+	Animate AmmoInClip		fgcolor		"255 80 0 255"		Linear 0.0 0.0
+	Animate AmmoInClip		fgcolor		"180 0 0 255"		Linear 0.0 0.5
+	Animate AmmoInClip		fgcolor		"255 80 0 255"		Linear 0.5 0.5
+	RunEvent LowAmmoIndicatorOn		1.0
+}
+
+event LowAmmoIndicatorOff
+{
+	StopEvent LowAmmoIndicatorOn		0.0
+	Animate AmmoInClip		fgcolor		"160 32 240 255"	Linear 0.0 0.1
+}
+
+event AmmoPickup
+{
+	Animate AmmoInClip		Alpha		"255"			Linear 0.0 0.0
+	Animate AmmoInReserve	Alpha		"255"			Linear 0.0 0.0
+}
+
+event HudKillStreakActivate
+{
+	Animate HudKillStreakNotice	visible	"1"				Linear 0.0 0.0
+	Animate HudKillStreakNotice	Alpha	"255"			Linear 0.0 0.2
+	Animate HudKillStreakNotice	Alpha	"0"				Linear 3.0 0.5
+	Animate HudKillStreakNotice	visible	"0"				Linear 3.5 0.0
+}
